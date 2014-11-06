@@ -3,7 +3,8 @@
 \alias{unbind_one}
 \title{Save each column of a data frame to a separate file}
 \usage{
-unbind_one(x, name, .destdir_pattern = "inst/extdata/\%s", .compress = TRUE)
+unbind_one(x, name, .destdir_pattern = "inst/extdata/\%s", .compress = TRUE,
+  .parallel = FALSE)
 }
 \arguments{
 \item{x}{A data frame}
@@ -15,6 +16,8 @@ later}
 including the files in a package.}
 
 \item{.compress}{Passed as \code{compress} to \code{\link[base]{save}}}
+
+\item{.parallel}{If true, parallelize with \code{\link[parallel]{mclapply}}}
 }
 \description{
 This function save the data for each column of a data frame to a separate

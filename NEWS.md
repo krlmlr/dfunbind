@@ -1,3 +1,5 @@
+* New argument `.parallel` to support parallel execution (#2).
+
 v0.0-0.1 (2014-11-06)
 ===
 

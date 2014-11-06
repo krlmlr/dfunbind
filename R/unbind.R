@@ -10,8 +10,9 @@
 #' @param .destdir_pattern Where to save the files.  The default allows
 #'   including the files in a package.
 #' @param .compress Passed as \code{compress} to \code{\link[base]{save}}
+#' @param .parallel If true, parallelize with \code{\link[parallel]{mclapply}}
 #' @export
-unbind_one <- function(x, name, .destdir_pattern = "inst/extdata/%s", .compress = TRUE) {
+unbind_one <- function(x, name, .destdir_pattern = "inst/extdata/%s", .compress = TRUE, .parallel = FALSE) {
   if (!is.data.frame(x))
     stop("x must be a data frame")
 
@@ -19,8 +20,11 @@ unbind_one <- function(x, name, .destdir_pattern = "inst/extdata/%s", .compress 
   dir.create(destdir, recursive = TRUE)
 
   x_env <- as.environment(x)
-  lapply(names(x), function(x)
-    save(list = x, file = file.path(destdir, sprintf("%s.rda", x)), envir = x_env, compress = .compress))
+  cores <- if (.parallel) parallel::detectCores() else 1L
+  parallel::mclapply(names(x), function(x)
+    save(list = x, file = file.path(destdir, sprintf("%s.rda", x)), envir = x_env, compress = .compress),
+    mc.cores = cores
+  )
 
   invisible(NULL)
 }
