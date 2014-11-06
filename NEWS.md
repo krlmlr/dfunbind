@@ -1,3 +1,6 @@
+v0.0-0.2 (2014-11-06)
+===
+
 * New argument `.parallel` to support parallel execution (#2).
 
 v0.0-0.1 (2014-11-06)
