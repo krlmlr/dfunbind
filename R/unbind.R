@@ -19,10 +19,9 @@ unbind_one <- function(x, name, .destdir_pattern = "inst/extdata/%s", .compress 
   destdir = sprintf(.destdir_pattern, name)
   dir.create(destdir, recursive = TRUE)
 
-  x_env <- as.environment(x)
   cores <- if (.parallel) parallel::detectCores() else 1L
-  parallel::mclapply(names(x), function(x)
-    save(list = x, file = file.path(destdir, sprintf("%s.rda", x)), envir = x_env, compress = .compress),
+  parallel::mclapply(names(x), function(name)
+    saveRDS(x[[name]], file = file.path(destdir, sprintf("%s.rds", name)), compress = .compress),
     mc.cores = cores
   )
 
