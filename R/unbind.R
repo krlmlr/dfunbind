@@ -21,4 +21,6 @@ unbind_one <- function(x, name, .destdir_pattern = "inst/extdata/%s", .compress 
   x_env <- as.environment(x)
   lapply(names(x), function(x)
     save(list = x, file = file.path(destdir, sprintf("%s.rda", x)), envir = x_env, compress = .compress))
+
+  invisible(NULL)
 }
