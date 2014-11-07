@@ -1,3 +1,6 @@
+v0.0-0.4 (2014-11-07)
+===
+
 * initial implementation of splice function, creates an object that has a `[`
   operator defined that allows accessing the data
 * Use numeric prefix to file names to preserve order (#3).
