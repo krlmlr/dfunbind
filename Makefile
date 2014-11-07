@@ -43,7 +43,6 @@ bump: bump-desc inst/NEWS.Rd tag
 bootstrap_snap:
 	curl -L https://raw.githubusercontent.com/krlmlr/r-snap-texlive/master/install.sh | sh
 	curl -L https://raw.githubusercontent.com/krlmlr/r-snap/master/install.sh | sh
-	sudo yum install -y unixODBC-devel
 
 test:
 	Rscript -e "update.packages(repos = 'http://cran.rstudio.com')"
