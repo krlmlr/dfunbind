@@ -15,7 +15,7 @@ iris_unbound
 }
 \description{
 This is the same data as \code{\link[datasets]{iris}}, saved in
-\code{inst/extdata} using one file per column
+\code{inst/extdata} using one file per column.
 }
 \examples{
 head(iris_unbound[1:3])
