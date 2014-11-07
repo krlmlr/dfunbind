@@ -3,23 +3,12 @@
 #' This function loads the data for each column of a data frame from a separate
 #' RDS file, as created by \code{\link{unbind}}.
 #'
-#' If this function is called from a namespace (e.g., when loading a package)
-#' and \code{path} is a relative directory, it is assumed to be relative to the
-#' installation path of the package (via \code{\link[base]{system.file}}).
-#'
 #' @param path Source directory as passed to \code{\link{unbind}}
 #' @return An object of class \code{dfsplice}; extract columns by using \code{[},
 #'   \code{[[} or \code{$}
 #' @export
 splice <- function(path) {
-  norm_path <- normalizePath(path, mustWork = FALSE)
-  if (path != norm_path) {
-    if (isNamespace(package_envir <- parent.frame()))
-      path <- system.file(path, package = getNamespaceName(package_envir))
-    else
-      path <- norm_path
-  }
-
+  path <- normalizePath(path)
   pattern <- "[0-9]+-(.*)[.]rds$"
   files <- dir(path = path, pattern = pattern)
 

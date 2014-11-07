@@ -16,9 +16,4 @@ An object of class \code{dfsplice}; extract columns by using \code{[},
 This function loads the data for each column of a data frame from a separate
 RDS file, as created by \code{\link{unbind}}.
 }
-\details{
-If this function is called from a namespace (e.g., when loading a package)
-and \code{path} is a relative directory, it is assumed to be relative to the
-installation path of the package (via \code{\link[base]{system.file}}).
-}
 
