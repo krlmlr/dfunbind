@@ -70,7 +70,7 @@ cache_columns <- function(x, out_names) {
 }
 
 #' @export
-str.dfsplice <- function(x) {
+str.dfsplice <- function(object, ...) {
   cat(
     sprintf(
       "A dfsplice object"

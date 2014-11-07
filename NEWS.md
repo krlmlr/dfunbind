@@ -1,4 +1,5 @@
 * Relative paths are used "as they come in" again (hadley/devtools#640).
+* Fix arguments for `str.dfsplice`.
 
 v0.0-1.1 (2014-11-07)
 ===
