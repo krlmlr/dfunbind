@@ -33,6 +33,7 @@ splice <- function(path) {
     class = c("dfsplice"))
 }
 
+#' @export
 `[.dfsplice` <- function(x, i) {
   names <- setNames(nm = attr(x, ".ColNames"))
   out_names <- names[i]
@@ -42,6 +43,7 @@ splice <- function(path) {
   as.data.frame(mget(out_names, unclass(x)[["envir"]]))
 }
 
+#' @export
 `[[.dfsplice` <- function(x, i) {
   names <- setNames(nm = attr(x, ".ColNames"))
   out_names <- names[[i]]
@@ -51,6 +53,7 @@ splice <- function(path) {
   get(out_names, unclass(x)[["envir"]])
 }
 
+#' @export
 `$.dfsplice` <- function(x, name) {
   names <- as.data.frame(as.list(setNames(nm = attr(x, ".ColNames"))), stringsAsFactors = FALSE)
   out_names <- `$.data.frame`(names, name)
@@ -77,6 +80,7 @@ cache_columns <- function(x, out_names) {
   }
 }
 
+#' @export
 str.dfsplice <- function(x) {
   cat(
     sprintf(
