@@ -17,7 +17,8 @@ unbind_one <- function(x, name, .destdir_pattern = "inst/extdata/%s", .compress 
     stop("x must be a data frame")
 
   destdir = sprintf(.destdir_pattern, name)
-  dir.create(destdir, recursive = TRUE)
+  if (!file.exists(destdir))
+    dir.create(destdir, recursive = TRUE)
 
   cores <- if (.parallel) parallel::detectCores() else 1L
   parallel::mclapply(names(x), function(name)
