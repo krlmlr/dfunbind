@@ -1,6 +1,11 @@
 \name{NEWS}
 \title{News for Package 'dfunbind'}
 \encoding{UTF-8}
+\section{Changes in dfunbind version 0.0-0.5 (2014-11-07)}{
+  \itemize{
+    \item Operators \code{[[} and \code{$} for \code{dfunbind} class
+  }
+}
 \section{Changes in dfunbind version 0.0-0.4 (2014-11-07)}{
   \itemize{
     \item initial implementation of splice function, creates an object that has a \code{[}
