@@ -1,3 +1,5 @@
+* Include an unbound version of the Iris data as example
+
 v0.0-1 (2014-11-07)
 ===
 
