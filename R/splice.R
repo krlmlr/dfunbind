@@ -8,7 +8,7 @@
 #' installation path of the package (via \code{\link[base]{system.file}}).
 #'
 #' @param path Source directory as passed to \code{\link{unbind}}
-#' @return An object of class \code{dfunbind}; extract columns by using \code{[},
+#' @return An object of class \code{dfsplice}; extract columns by using \code{[},
 #'   \code{[[} or \code{$}
 #' @export
 splice <- function(path) {

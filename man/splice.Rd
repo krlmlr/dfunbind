@@ -9,7 +9,7 @@ splice(path)
 \item{path}{Source directory as passed to \code{\link{unbind}}}
 }
 \value{
-An object of class \code{dfunbind}; extract columns by using \code{[},
+An object of class \code{dfsplice}; extract columns by using \code{[},
   \code{[[} or \code{$}
 }
 \description{
