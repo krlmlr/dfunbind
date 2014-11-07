@@ -18,7 +18,14 @@ splice <- function(path) {
   names <- setNames(nm = attr(x, ".ColNames"))
   out_names <- names[i]
 
+  cache_columns(x, out_names)
+
+  as.data.frame(mget(out_names, x[["envir"]]))
+}
+
+cache_columns <- function(x, out_names) {
   envir <- x[["envir"]]
+  names <- attr(x, ".ColNames")
   path <- attr(x, ".Path")
   files <- attr(x, ".Files")
 
@@ -31,6 +38,4 @@ splice <- function(path) {
     name <- names[[i]]
     assign(name, readRDS(file.path(path, files[[i]])), envir)
   }
-
-  as.data.frame(mget(out_names, envir))
 }

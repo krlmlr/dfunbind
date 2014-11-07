@@ -15,4 +15,5 @@ test_that('Unbind creates files and directories', {
   expect_equal(iris_splice[3], iris[3])
   expect_equal(iris_splice[c(2,1,5,3)], iris[c(2,1,5,3)])
   expect_equal(iris_splice[names(iris)[c(2,1,5,3)]], iris[c(2,1,5,3)])
+  expect_equal(iris_splice[names(iris)[c(4,5)]], iris[c(4,5)])
 })
