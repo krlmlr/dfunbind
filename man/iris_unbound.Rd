@@ -4,10 +4,10 @@
 \alias{iris_unbound}
 \title{The Iris data, saved as one file per column}
 \format{\preformatted{List of 1
- $ envir:<environment: 0x226e148> 
- - attr(*, ".ColNames")= chr(0) 
- - attr(*, ".Path")= chr "inst/extdata/iris"
- - attr(*, ".Files")= chr(0) 
+ $ envir: num [1:150] 5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+ - attr(*, ".ColNames")= chr [1:5] "Sepal.Length" "Sepal.Width" "Petal.Length" "Petal.Width" ...
+ - attr(*, ".Path")= chr "/home/muelleki/git/R/dfunbind/inst/extdata/iris"
+ - attr(*, ".Files")= chr [1:5] "1-Sepal.Length.rds" "2-Sepal.Width.rds" "3-Petal.Length.rds" "4-Petal.Width.rds" ...
  - attr(*, "class")= chr "dfsplice"
 }}
 \usage{
