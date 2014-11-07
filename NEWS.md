@@ -1,3 +1,5 @@
+* Operators `[[` and `$` for `dfunbind` class
+
 v0.0-0.4 (2014-11-07)
 ===
 
