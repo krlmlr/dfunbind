@@ -12,8 +12,8 @@ unbind_one(x, name, .destdir_pattern = "inst/extdata/\%s", .compress = TRUE,
 \item{name}{A variable name under which this data frame should be accessible
 later}
 
-\item{.destdir_pattern}{Where to save the files.  The default allows
-including the files in a package.}
+\item{.destdir_pattern}{Where to save the files.  The placeholder will be
+substituted by the \code{name} argument}
 
 \item{.compress}{Passed as \code{compress} to \code{\link[base]{save}}}
 
@@ -21,7 +21,20 @@ including the files in a package.}
 }
 \description{
 This function save the data for each column of a data frame to a separate
-RData file.  If the target directory does not exist, it is created, including
+RDS file.  If the target directory does not exist, it is created, including
 intermediate directories.  Compression is optional.
+}
+\details{
+Use this function in a helper script for your package to add the files needed
+for column-wise loading this data set, e.g., in the \code{data-raw} directory.
+The default destination
+is recommended by the "Writing R Extensions" manual: "the convention has
+grown up to use directory \code{inst/extdata} for [other data files needed
+by the package]".
+}
+\references{
+\href{http://r-pkgs.had.co.nz/data.html}{R packages: External data}
+
+\href{http://cran.r-project.org/doc/manuals/R-exts.html}{Writing R extensions}
 }
 
