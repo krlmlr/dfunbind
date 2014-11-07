@@ -1,3 +1,5 @@
+* initial implementation of splice function, creates an object that has a `[`
+  operator defined that allows accessing the data
 * Use numeric prefix to file names to preserve order (#3).
 
 v0.0-0.3 (2014-11-07)
