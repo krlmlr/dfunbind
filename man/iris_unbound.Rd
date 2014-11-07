@@ -3,7 +3,12 @@
 \name{iris_unbound}
 \alias{iris_unbound}
 \title{The Iris data, saved as one file per column}
-\format{\preformatted{A dfsplice object
+\format{\preformatted{List of 1
+ $ envir:<environment: 0x39fe198> 
+ - attr(*, ".ColNames")= chr(0) 
+ - attr(*, ".Path")= chr "inst/extdata/iris"
+ - attr(*, ".Files")= chr(0) 
+ - attr(*, "class")= chr "dfsplice"
 }}
 \usage{
 iris_unbound
