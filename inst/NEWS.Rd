@@ -1,6 +1,13 @@
 \name{NEWS}
 \title{News for Package 'dfunbind'}
 \encoding{UTF-8}
+\section{Changes in dfunbind version 0.0-0.4 (2014-11-07)}{
+  \itemize{
+    \item initial implementation of splice function, creates an object that has a \code{[}
+      operator defined that allows accessing the data
+    \item Use numeric prefix to file names to preserve order (#3).
+  }
+}
 \section{Changes in dfunbind version 0.0-0.3 (2014-11-07)}{
   \itemize{
     \item Write \code{.rds} files instead of \code{.rda} files (#4).
