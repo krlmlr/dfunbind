@@ -1,3 +1,5 @@
+* Use numeric prefix to file names to preserve order (#3).
+
 v0.0-0.3 (2014-11-07)
 ===
 
