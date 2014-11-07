@@ -1,3 +1,6 @@
+v0.0-0.3 (2014-11-07)
+===
+
 * Write `.rds` files instead of `.rda` files (#4).
 * `testthat` infrastructure.
 
