@@ -6,7 +6,7 @@
 splice(path)
 }
 \arguments{
-\item{path}{Source directory as passed to \code{\link{unbind_one}}}
+\item{path}{Source directory as passed to \code{\link{unbind}}}
 }
 \value{
 An object of class \code{dfunbind}; extract columns by using \code{[},
@@ -14,6 +14,6 @@ An object of class \code{dfunbind}; extract columns by using \code{[},
 }
 \description{
 This function loads the data for each column of a data frame from a separate
-RDS file, as created by \code{\link{unbind_one}}.
+RDS file, as created by \code{\link{unbind}}.
 }
 

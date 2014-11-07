@@ -1,9 +1,9 @@
 #' Loads column-wise data
 #'
 #' This function loads the data for each column of a data frame from a separate
-#' RDS file, as created by \code{\link{unbind_one}}.
+#' RDS file, as created by \code{\link{unbind}}.
 #'
-#' @param path Source directory as passed to \code{\link{unbind_one}}
+#' @param path Source directory as passed to \code{\link{unbind}}
 #' @return An object of class \code{dfunbind}; extract columns by using \code{[},
 #'   \code{[[} or \code{$}
 #' @export

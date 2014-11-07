@@ -12,7 +12,7 @@ a workaround by providing functions to store and load data frames in
 one RDS file per column.
 }
 \examples{
-unbind_one(iris, "iris", ".")
+unbind(iris, "./iris")
 iris_unbound <- splice("./iris")
 head(iris_unbound[1:3])
 }

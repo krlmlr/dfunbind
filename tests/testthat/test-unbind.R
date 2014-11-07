@@ -2,7 +2,7 @@ context('Unbind')
 
 my_subdir <- "subdir/for/data"
 on.exit(unlink(my_subdir, recursive = TRUE))
-unbind_one(iris, "iris", my_subdir)
+unbind(iris, my_subdir)
 
 test_that('Unbind creates files and directories', {
   expect_true(file.exists(my_subdir))
