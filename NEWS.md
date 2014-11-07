@@ -1,4 +1,6 @@
-* Include an unbound version of the Iris data as example
+* Include an unbound version of the Iris data as example.
+* Implement `str.dfsplice` (#5).
+* During package loading, relative paths passed to splice are interpreted as relative to the package's installation directory.
 
 v0.0-1 (2014-11-07)
 ===

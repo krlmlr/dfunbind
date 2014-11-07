@@ -3,12 +3,23 @@
 #' This function loads the data for each column of a data frame from a separate
 #' RDS file, as created by \code{\link{unbind}}.
 #'
+#' If this function is called from a namespace (e.g., when loading a package)
+#' and \code{path} is a relative directory, it is assumed to be relative to the
+#' installation path of the package (via \code{\link[base]{system.file}}).
+#'
 #' @param path Source directory as passed to \code{\link{unbind}}
 #' @return An object of class \code{dfunbind}; extract columns by using \code{[},
 #'   \code{[[} or \code{$}
 #' @export
 splice <- function(path) {
-  path <- normalizePath(path)
+  norm_path <- normalizePath(path, mustWork = FALSE)
+  if (path != norm_path) {
+    if (isNamespace(package_envir <- parent.frame()))
+      path <- system.file(path, package = getNamespaceName(package_envir))
+    else
+      path <- norm_path
+  }
+
   pattern <- "[0-9]+-(.*)[.]rds$"
   files <- dir(path = path, pattern = pattern)
 
@@ -64,4 +75,13 @@ cache_columns <- function(x, out_names) {
     name <- names[[i]]
     assign(name, readRDS(file.path(path, files[[i]])), envir)
   }
+}
+
+str.dfsplice <- function(x) {
+  cat(
+    sprintf(
+      "A dfsplice object"
+    )
+  )
+  invisible(NULL)
 }
