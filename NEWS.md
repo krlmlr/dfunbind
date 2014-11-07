@@ -1,3 +1,6 @@
+v0.0-1 (2014-11-07)
+===
+
 * Initial implementation
 
 * Function `unbind` saves the data for each column of a data frame to a
