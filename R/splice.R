@@ -32,6 +32,15 @@ splice <- function(path) {
   get(out_names, unclass(x)[["envir"]])
 }
 
+`$.dfsplice` <- function(x, name) {
+  names <- as.data.frame(as.list(setNames(nm = attr(x, ".ColNames"))), stringsAsFactors = FALSE)
+  out_names <- `$.data.frame`(names, name)
+
+  cache_columns(x, out_names)
+
+  get(out_names, unclass(x)[["envir"]])
+}
+
 cache_columns <- function(x, out_names) {
   envir <- unclass(x)[["envir"]]
   names <- attr(x, ".ColNames")

@@ -27,3 +27,11 @@ test_that('splice and [[', {
   expect_error(iris_splice[[c(2,1,5,3)]])
   expect_error(iris_splice[[names(iris)[c(2,1,5,3)]]])
 })
+
+test_that('splice and $', {
+  iris_splice <- splice(my_subdir)
+  expect_equal(iris_splice$Species, iris$Species)
+  expect_equal(iris_splice$Spec, iris$Species)
+  expect_equal(iris_splice$Petal.L, iris$Petal.L)
+  expect_error(iris_splice$Nonexisting)
+})
