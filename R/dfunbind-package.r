@@ -9,7 +9,7 @@
 #' @name dfunbind
 #' @docType package
 #' @examples
-#' unbind_one(iris, "iris", ".")
+#' unbind(iris, "./iris")
 #' iris_unbound <- splice("./iris")
 #' head(iris_unbound[1:3])
 NULL

@@ -1,3 +1,6 @@
+* `unbind_one` is now called `unbind` and doesn't have a `name` parameter
+  anymore
+
 v0.0-0.5 (2014-11-07)
 ===
 
