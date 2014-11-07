@@ -20,11 +20,20 @@ splice <- function(path) {
 
   cache_columns(x, out_names)
 
-  as.data.frame(mget(out_names, x[["envir"]]))
+  as.data.frame(mget(out_names, unclass(x)[["envir"]]))
+}
+
+`[[.dfsplice` <- function(x, i) {
+  names <- setNames(nm = attr(x, ".ColNames"))
+  out_names <- names[[i]]
+
+  cache_columns(x, out_names)
+
+  get(out_names, unclass(x)[["envir"]])
 }
 
 cache_columns <- function(x, out_names) {
-  envir <- x[["envir"]]
+  envir <- unclass(x)[["envir"]]
   names <- attr(x, ".ColNames")
   path <- attr(x, ".Path")
   files <- attr(x, ".Files")
