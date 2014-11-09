@@ -1,3 +1,6 @@
+v0.0-2 (2014-11-09)
+===
+
 * Include an unbound version of the Iris data as example.
 * Add test that is currently skipped when running from `devtools`.
 * Implement `str.dfsplice` (#5).
