@@ -1,6 +1,11 @@
 \name{NEWS}
 \title{News for Package 'dfunbind'}
 \encoding{UTF-8}
+\section{Changes in dfunbind version 0.0-1.3 (2014-11-09)}{
+  \itemize{
+    \item Add test that is currently skipped when running from \code{devtools}.
+  }
+}
 \section{Changes in dfunbind version 0.0-1.2 (2014-11-07)}{
   \itemize{
     \item Relative paths are used "as they come in" again (hadley/devtools#640).
