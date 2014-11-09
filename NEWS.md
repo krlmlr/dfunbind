@@ -1,3 +1,6 @@
+v0.0-1.3 (2014-11-09)
+===
+
 * Add test that is currently skipped when running from `devtools`.
 
 v0.0-1.2 (2014-11-07)
