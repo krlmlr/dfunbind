@@ -15,8 +15,18 @@ devtools::install_github("krlmlr/dfunbind")
 ## Usage
 
 To package a data set, use `unbind(dataset, "inst/extdata/dataset")`.
-Then, in a source file, add a statement `dataset <- splice("inst/extdata/dataset")`
-to a source file in the `R/` subdirectory of your package.
+Then,  in the `R/` subdirectory of your package, create a source file
+with the following contents:
+
+```
+#' @import dfunbind
+#' @export
+dataset <- splice("inst/extdata/dataset")
+```
+
+The `dfunbind` package needs to be imported explicitly to access S3 methods and
+operators defined there.
+
 
 ## Example
 
