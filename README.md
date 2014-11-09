@@ -24,6 +24,7 @@ with the following contents:
 dataset <- splice("inst/extdata/dataset")
 ```
 
+Use `roxygen2` or `devtools` to create documentation and the `NAMESPACE` file.
 The `dfunbind` package needs to be imported explicitly to access S3 methods and
 operators defined there.
 
