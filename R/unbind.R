@@ -27,12 +27,22 @@ unbind <- function(x, .destdir, .compress = TRUE, .parallel = FALSE) {
 
   fmt <- sprintf("%%.0%dd-%%s.rds", ceiling(log10(ncol(x) + 1)))
 
+  xs <- seq.int(0L, ncol(x))
+
   cores <- if (.parallel) parallel::detectCores() else 1L
   parallel::mclapply(
-    seq_along(x),
+    xs,
     function(i) {
-      name <- names(x)[[i]]
-      saveRDS(x[[i]], file = file.path(.destdir, sprintf(fmt, i, name)), compress = .compress)
+      if (i == 0) {
+        name <- "rownames"
+        obj <- attr(x, "row.names")
+        if (all(obj == seq_len(nrow(x))))
+          obj <- list(nrow(x))
+      } else {
+        name <- names(x)[[i]]
+        obj <- x[[i]]
+      }
+      saveRDS(obj, file = file.path(.destdir, sprintf(fmt, i, name)), compress = .compress)
     },
     mc.cores = cores
   )

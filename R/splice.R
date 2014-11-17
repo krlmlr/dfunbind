@@ -9,21 +9,35 @@
 #' @export
 splice <- function(path) {
   path <- normalizePath(path)
-  pattern <- "[0-9]+-(.*)[.]rds$"
+  pattern <- "([0-9]+)-(.*)[.]rds$"
   files <- dir(path = path, pattern = pattern)
 
-  col_names <- gsub(pattern, "\\1", files)
+  indexes <- gsub(pattern, "\\1", files)
+  col_names <- gsub(pattern, "\\2", files)
 
   if (length(indexes) == 0)
     stop("Source directory ", path, " does not appear to contain .rds files.")
 
+  if (as.integer(indexes[[1L]]) != 0L)
+    stop("No row names found")
+
+  row_names <- readRDS(file.path(path, files[[1L]]))
+  if (is.list(row_names))
+    row_names <- seq_len(row_names[[1L]])
+  col_names <- col_names[-1L]
+  files <- files[-1L]
+
   structure(
     list(envir = new.env(parent = emptyenv())),
+    row.names = row_names,
     .ColNames = col_names,
     .Path = path,
     .Files = files,
     class = c("dfsplice"))
 }
+
+#' @export
+row.names.dfsplice <- row.names.data.frame
 
 #' @export
 `[.dfsplice` <- function(x, i) {
