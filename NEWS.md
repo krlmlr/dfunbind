@@ -1,3 +1,6 @@
+v0.0-2.2 (2014-11-17)
+===
+
 * Store and row names in a separate file, retrieve them unconditionally
 * Implement `row.names.dfsplice` (as forward to `row.names.data.frame`)
 
