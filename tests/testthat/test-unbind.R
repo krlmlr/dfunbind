@@ -35,3 +35,9 @@ test_that('splice and $', {
   expect_equal(iris_splice$Petal.L, iris$Petal.L)
   expect_error(iris_splice$Nonexisting)
 })
+
+test_that('splice and names', {
+  iris_splice <- splice(my_subdir)
+  expect_equal(names(iris_splice), names(iris))
+  expect_equal(colnames(iris_splice), colnames(iris))
+})

@@ -16,7 +16,7 @@ splice <- function(path) {
 
   structure(
     list(envir = new.env(parent = emptyenv())),
-    .ColNames = col_names,
+    .Dimnames = list(NULL, col_names),
     .Path = path,
     .Files = files,
     class = c("dfsplice"))
@@ -24,7 +24,7 @@ splice <- function(path) {
 
 #' @export
 `[.dfsplice` <- function(x, i) {
-  names <- setNames(nm = attr(x, ".ColNames"))
+  names <- setNames(nm = colnames(x))
   out_names <- names[i]
 
   cache_columns(x, out_names)
@@ -34,7 +34,7 @@ splice <- function(path) {
 
 #' @export
 `[[.dfsplice` <- function(x, i) {
-  names <- setNames(nm = attr(x, ".ColNames"))
+  names <- setNames(nm = colnames(x))
   out_names <- names[[i]]
 
   cache_columns(x, out_names)
@@ -44,7 +44,7 @@ splice <- function(path) {
 
 #' @export
 `$.dfsplice` <- function(x, name) {
-  names <- as.data.frame(as.list(setNames(nm = attr(x, ".ColNames"))), stringsAsFactors = FALSE)
+  names <- as.data.frame(as.list(setNames(nm = colnames(x))), stringsAsFactors = FALSE)
   out_names <- `$.data.frame`(names, name)
 
   cache_columns(x, out_names)
@@ -54,7 +54,7 @@ splice <- function(path) {
 
 cache_columns <- function(x, out_names) {
   envir <- unclass(x)[["envir"]]
-  names <- attr(x, ".ColNames")
+  names <- colnames(x)
   path <- attr(x, ".Path")
   files <- attr(x, ".Files")
 
