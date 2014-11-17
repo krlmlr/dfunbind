@@ -3,10 +3,11 @@
 \name{iris_unbound}
 \alias{iris_unbound}
 \title{The Iris data, saved as one file per column}
-\format{\preformatted{Class 'try-error'  atomic [1:1] Error in splice("inst/extdata/iris") : object 'indexes' not found
+\format{\preformatted{Class 'try-error'  atomic [1:1] Error in splice("inst/extdata/iris") : 
+  Source directory inst/extdata/iris does not appear to contain .rds files.
 
   ..- attr(*, "condition")=List of 2
-  .. ..$ message: chr "object 'indexes' not found"
+  .. ..$ message: chr "Source directory inst/extdata/iris does not appear to contain .rds files."
   .. ..$ call   : language splice("inst/extdata/iris")
   .. ..- attr(*, "class")= chr [1:3] "simpleError" "error" "condition"
 }}
