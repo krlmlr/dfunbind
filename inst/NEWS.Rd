@@ -1,6 +1,11 @@
 \name{NEWS}
 \title{News for Package 'dfunbind'}
 \encoding{UTF-8}
+\section{Changes in dfunbind version 0.0-2.1 (2014-11-17)}{
+  \itemize{
+    \item \code{splice} throws error if directory is empty
+  }
+}
 \section{Changes in dfunbind version 0.0-2 (2014-11-09)}{
   \itemize{
     \item Include an unbound version of the Iris data as example.
