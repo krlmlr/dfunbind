@@ -3,12 +3,12 @@
 \name{iris_unbound}
 \alias{iris_unbound}
 \title{The Iris data, saved as one file per column}
-\format{\preformatted{List of 1
- $ envir:<environment: 0x35ab298> 
- - attr(*, ".ColNames")= chr(0) 
- - attr(*, ".Path")= chr "inst/extdata/iris"
- - attr(*, ".Files")= chr(0) 
- - attr(*, "class")= chr "dfsplice"
+\format{\preformatted{Class 'try-error'  atomic [1:1] Error in splice("inst/extdata/iris") : object 'indexes' not found
+
+  ..- attr(*, "condition")=List of 2
+  .. ..$ message: chr "object 'indexes' not found"
+  .. ..$ call   : language splice("inst/extdata/iris")
+  .. ..- attr(*, "class")= chr [1:3] "simpleError" "error" "condition"
 }}
 \usage{
 iris_unbound
