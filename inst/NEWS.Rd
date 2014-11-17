@@ -1,6 +1,12 @@
 \name{NEWS}
 \title{News for Package 'dfunbind'}
 \encoding{UTF-8}
+\section{Changes in dfunbind version 0.0-2.2 (2014-11-17)}{
+  \itemize{
+    \item Store and row names in a separate file, retrieve them unconditionally
+    \item Implement \code{row.names.dfsplice} (as forward to \code{row.names.data.frame})
+  }
+}
 \section{Changes in dfunbind version 0.0-2.1 (2014-11-17)}{
   \itemize{
     \item \code{splice} throws error if directory is empty
