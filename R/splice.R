@@ -14,6 +14,9 @@ splice <- function(path) {
 
   col_names <- gsub(pattern, "\\1", files)
 
+  if (length(indexes) == 0)
+    stop("Source directory ", path, " does not appear to contain .rds files.")
+
   structure(
     list(envir = new.env(parent = emptyenv())),
     .ColNames = col_names,

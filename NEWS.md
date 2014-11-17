@@ -1,3 +1,5 @@
+* `splice` throws error if directory is empty
+
 v0.0-2 (2014-11-09)
 ===
 
