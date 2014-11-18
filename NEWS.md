@@ -1,3 +1,6 @@
+* Implement `names.dfsplice` and `dimnames.dfsplice`
+* `colnames` now also works for `dfsplice` objects
+
 v0.0-2.2 (2014-11-17)
 ===
 
