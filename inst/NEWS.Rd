@@ -1,6 +1,11 @@
 \name{NEWS}
 \title{News for Package 'dfunbind'}
 \encoding{UTF-8}
+\section{Changes in dfunbind version 0.0-2.4 (2014-11-18)}{
+  \itemize{
+    \item Implement \code{dim.dfsplice}
+  }
+}
 \section{Changes in dfunbind version 0.0-2.3 (2014-11-18)}{
   \itemize{
     \item Implement \code{names.dfsplice} and \code{dimnames.dfsplice}
