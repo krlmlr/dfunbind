@@ -1,3 +1,5 @@
+* Implement `print.dfsplice`
+
 v0.0-2.5 (2014-11-18)
 ===
 
