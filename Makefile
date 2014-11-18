@@ -10,7 +10,7 @@ gh-pages:
 	git subtree split --prefix website --branch gh-pages
 
 rd: git
-	Rscript -e "devtools::document()"
+	Rscript -e "library(methods); devtools::document()"
 	git add man/ NAMESPACE
 	test "$$(git status --porcelain | wc -c)" = "0" || git commit -m "document"
 
