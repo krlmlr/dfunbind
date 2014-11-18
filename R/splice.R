@@ -52,6 +52,9 @@ row.names.dfsplice <- function(x) row.names.data.frame(x)
 dimnames.dfsplice <- function(x) dimnames.data.frame(x)
 
 #' @export
+dim.dfsplice <- function(x) dim.data.frame(x)
+
+#' @export
 `[.dfsplice` <- function(x, i) {
   in_names <- setNames(nm = names(x))
   out_names <- in_names[i]
