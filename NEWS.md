@@ -1,3 +1,6 @@
+v0.0-2.3 (2014-11-18)
+===
+
 * Implement `names.dfsplice` and `dimnames.dfsplice`
 * `colnames` now also works for `dfsplice` objects
 * Work around `devtools` issue hadley/devtools#640 (working directory for
