@@ -13,7 +13,7 @@ splice <- function(path) {
     path <- file.path("..", path)
 
   path <- normalizePath(path)
-  pattern <- "([0-9]+)-(.*)[.]rds$"
+  pattern <- "^([0-9]+)-(.*)[.]rds$"
   files <- dir(path = path, pattern = pattern)
 
   indexes <- gsub(pattern, "\\1", files)
