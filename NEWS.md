@@ -1,3 +1,6 @@
+v0.0-3 (2014-11-18)
+===
+
 * Complete `data.frame`-like implementation for `dfsplice` class with new
   methods `names`, `dimnames`, `row.names`, `dim` and `print`
 * Better implementation of `str.dfsplice` now prints rows, columns and column
