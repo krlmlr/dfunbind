@@ -1,3 +1,5 @@
+* Implement `dim.dfsplice`
+
 v0.0-2.3 (2014-11-18)
 ===
 
