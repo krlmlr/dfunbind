@@ -1,37 +1,11 @@
-v0.0-2.6 (2014-11-18)
-===
-
-* Implement `print.dfsplice`
-
-v0.0-2.5 (2014-11-18)
-===
-
+* Complete `data.frame`-like implementation for `dfsplice` class with new
+  methods `names`, `dimnames`, `row.names`, `dim` and `print`
 * Better implementation of `str.dfsplice` now prints rows, columns and column
   names
-
-v0.0-2.4 (2014-11-18)
-===
-
-* Implement `dim.dfsplice`
-
-v0.0-2.3 (2014-11-18)
-===
-
-* Implement `names.dfsplice` and `dimnames.dfsplice`
-* `colnames` now also works for `dfsplice` objects
+* `splice` throws error if directory is empty
+* Store row names in a separate file, retrieve them unconditionally
 * Work around `devtools` issue hadley/devtools#640 (working directory for
   testing and documenting)
-
-v0.0-2.2 (2014-11-17)
-===
-
-* Store and row names in a separate file, retrieve them unconditionally
-* Implement `row.names.dfsplice` (as forward to `row.names.data.frame`)
-
-v0.0-2.1 (2014-11-17)
-===
-
-* `splice` throws error if directory is empty
 
 v0.0-2 (2014-11-09)
 ===
