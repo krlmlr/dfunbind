@@ -8,6 +8,10 @@
 #'   \code{[[} or \code{$}
 #' @export
 splice <- function(path) {
+  # Work around hadley/devtools#640
+  if (!file.exists(path) && basename(getwd()) == "R" && file.exists(file.path("..", path)))
+    path <- file.path("..", path)
+
   path <- normalizePath(path)
   pattern <- "([0-9]+)-(.*)[.]rds$"
   files <- dir(path = path, pattern = pattern)
