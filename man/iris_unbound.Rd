@@ -4,11 +4,11 @@
 \alias{iris_unbound}
 \title{The Iris data, saved as one file per column}
 \format{\preformatted{A dfsplice object with 150 rows and 5 columns:
-Sepal.Length
-Sepal.Width
-Petal.Length
-Petal.Width
-Species
+  Sepal.Length
+  Sepal.Width
+  Petal.Length
+  Petal.Width
+  Species
 }}
 \usage{
 iris_unbound

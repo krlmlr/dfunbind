@@ -105,10 +105,10 @@ cache_columns <- function(x, out_names) {
 str.dfsplice <- function(object, ...) {
   cat(
     sprintf(
-      "A dfsplice object with %d rows and %d columns:\n%s",
+      "A dfsplice object with %d rows and %d columns:%s",
       nrow(object),
       ncol(object),
-      paste(names(object), collapse = "\n")
+      paste(c("", names(object)), collapse = "\n  ")
     )
   )
   invisible(NULL)
