@@ -1,3 +1,6 @@
+v0.0-2.5 (2014-11-18)
+===
+
 * Better implementation of `str.dfsplice` now prints rows, columns and column
   names
 
