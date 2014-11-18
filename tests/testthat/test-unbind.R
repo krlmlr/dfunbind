@@ -18,6 +18,13 @@ test_that('splice and row names', {
   expect_equal(row.names(iris_splice), row.names(iris))
 })
 
+test_that('splice and column names', {
+  iris_splice <- splice(my_subdir)
+  expect_equal(names(iris_splice), names(iris))
+  expect_equal(colnames(iris_splice), colnames(iris))
+  expect_equal(dimnames(iris_splice), dimnames(iris))
+})
+
 test_that('splice and [', {
   iris_splice <- splice(my_subdir)
   expect_equal(iris_splice[3], iris[3])

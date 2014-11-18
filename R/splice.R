@@ -40,9 +40,15 @@ splice <- function(path) {
 row.names.dfsplice <- row.names.data.frame
 
 #' @export
+names.dfsplice <- function(x) attr(x, ".ColNames")
+
+#' @export
+dimnames.dfsplice <- dimnames.data.frame
+
+#' @export
 `[.dfsplice` <- function(x, i) {
-  names <- setNames(nm = attr(x, ".ColNames"))
-  out_names <- names[i]
+  in_names <- setNames(nm = names(x))
+  out_names <- in_names[i]
 
   cache_columns(x, out_names)
 
@@ -51,8 +57,8 @@ row.names.dfsplice <- row.names.data.frame
 
 #' @export
 `[[.dfsplice` <- function(x, i) {
-  names <- setNames(nm = attr(x, ".ColNames"))
-  out_names <- names[[i]]
+  in_names <- setNames(nm = names(x))
+  out_names <- in_names[[i]]
 
   cache_columns(x, out_names)
 
@@ -61,8 +67,8 @@ row.names.dfsplice <- row.names.data.frame
 
 #' @export
 `$.dfsplice` <- function(x, name) {
-  names <- as.data.frame(as.list(setNames(nm = attr(x, ".ColNames"))), stringsAsFactors = FALSE)
-  out_names <- `$.data.frame`(names, name)
+  in_names <- as.data.frame(as.list(setNames(nm = names(x))), stringsAsFactors = FALSE)
+  out_names <- `$.data.frame`(in_names, name)
 
   cache_columns(x, out_names)
 
