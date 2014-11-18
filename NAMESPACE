@@ -3,6 +3,7 @@
 S3method("$",dfsplice)
 S3method("[",dfsplice)
 S3method("[[",dfsplice)
+S3method(dim,dfsplice)
 S3method(dimnames,dfsplice)
 S3method(row.names,dfsplice)
 S3method(str,dfsplice)

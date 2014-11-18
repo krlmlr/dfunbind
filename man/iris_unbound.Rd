@@ -3,13 +3,11 @@
 \name{iris_unbound}
 \alias{iris_unbound}
 \title{The Iris data, saved as one file per column}
-\format{\preformatted{List of 1
- $ envir:<environment: 0x37716d8> 
- - attr(*, "row.names")= int [1:150] 1 2 3 4 5 6 7 8 9 10 ...
- - attr(*, ".ColNames")= chr [1:5] "Sepal.Length" "Sepal.Width" "Petal.Length" "Petal.Width" ...
- - attr(*, ".Path")= chr "/home/muelleki/git/R/dfunbind/inst/extdata/iris"
- - attr(*, ".Files")= chr [1:5] "1-Sepal.Length.rds" "2-Sepal.Width.rds" "3-Petal.Length.rds" "4-Petal.Width.rds" ...
- - attr(*, "class")= chr "dfsplice"
+\format{\preformatted{Class 'dfsplice'  atomic [1:5] NA NA NA NA NA
+  ..- attr(*, "row.names")= int [1:150] 1 2 3 4 5 6 7 8 9 10 ...
+  ..- attr(*, ".Path")= chr "/home/muelleki/git/R/dfunbind/inst/extdata/iris"
+  ..- attr(*, ".Files")= chr [1:5] "1-Sepal.Length.rds" "2-Sepal.Width.rds" "3-Petal.Length.rds" "4-Petal.Width.rds" ...
+  ..- attr(*, ".Values")=<environment: 0x223a040> 
 }}
 \usage{
 iris_unbound
