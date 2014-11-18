@@ -1,6 +1,14 @@
 \name{NEWS}
 \title{News for Package 'dfunbind'}
 \encoding{UTF-8}
+\section{Changes in dfunbind version 0.0-2.3 (2014-11-18)}{
+  \itemize{
+    \item Implement \code{names.dfsplice} and \code{dimnames.dfsplice}
+    \item \code{colnames} now also works for \code{dfsplice} objects
+    \item Work around \code{devtools} issue hadley/devtools#640 (working directory for
+      testing and documenting)
+  }
+}
 \section{Changes in dfunbind version 0.0-2.2 (2014-11-17)}{
   \itemize{
     \item Store and row names in a separate file, retrieve them unconditionally
