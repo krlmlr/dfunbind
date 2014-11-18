@@ -113,3 +113,6 @@ str.dfsplice <- function(object, ...) {
   )
   invisible(NULL)
 }
+
+#' @export
+print.dfsplice <- function(x, ...) cat(str.dfsplice(x, ...), "\n")
