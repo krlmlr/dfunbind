@@ -3,13 +3,13 @@
 \name{iris_unbound}
 \alias{iris_unbound}
 \title{The Iris data, saved as one file per column}
-\format{\preformatted{Class 'try-error'  atomic [1:1] Error in splice("inst/extdata/iris") : 
-  Source directory inst/extdata/iris does not appear to contain .rds files.
-
-  ..- attr(*, "condition")=List of 2
-  .. ..$ message: chr "Source directory inst/extdata/iris does not appear to contain .rds files."
-  .. ..$ call   : language splice("inst/extdata/iris")
-  .. ..- attr(*, "class")= chr [1:3] "simpleError" "error" "condition"
+\format{\preformatted{List of 1
+ $ envir:<environment: 0x37716d8> 
+ - attr(*, "row.names")= int [1:150] 1 2 3 4 5 6 7 8 9 10 ...
+ - attr(*, ".ColNames")= chr [1:5] "Sepal.Length" "Sepal.Width" "Petal.Length" "Petal.Width" ...
+ - attr(*, ".Path")= chr "/home/muelleki/git/R/dfunbind/inst/extdata/iris"
+ - attr(*, ".Files")= chr [1:5] "1-Sepal.Length.rds" "2-Sepal.Width.rds" "3-Petal.Length.rds" "4-Petal.Width.rds" ...
+ - attr(*, "class")= chr "dfsplice"
 }}
 \usage{
 iris_unbound
