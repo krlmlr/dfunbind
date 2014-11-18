@@ -8,5 +8,5 @@
 #' @export
 #' @examples
 #' head(iris_unbound[1:3])
-iris_unbound <- try(splice("inst/extdata/iris"))
+iris_unbound <- splice("inst/extdata/iris")
 # Workaround for hadley/devtools#640
