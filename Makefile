@@ -9,14 +9,16 @@ master: git
 gh-pages:
 	git subtree split --prefix website --branch gh-pages
 
-rd:
-	crant -X
+rd: git
+	Rscript -e "devtools::document()"
+	git add man/ NAMESPACE
+	test "$$(git status --porcelain | wc -c)" = "0" || git commit -m "document"
 
 inst/NEWS.Rd: git NEWS.md
 	Rscript -e "tools:::news2Rd('$(word 2,$^)', '$@')"
 	sed -r -i 's/`([^`]+)`/\\code{\1}/g' $@
 	git add $@
-	test "$$(git status --porcelain | wc -c)" = "0" || git commit -m "Update NEWS.Rd"
+	test "$$(git status --porcelain | wc -c)" = "0" || git commit -m "update NEWS.Rd"
 
 tag:
 	git tag v$$(sed -n -r '/^Version: / {s/.* ([0-9.-]+)$$/\1/;p}' DESCRIPTION)
@@ -31,7 +33,7 @@ bump-desc: master rd
 	test "$$(git status --porcelain | wc -c)" = "0"
 	sed -i -r '/^Version: / s/( [0-9.]+)$$/\1-0.0/' DESCRIPTION
 	git add DESCRIPTION
-	test "$$(git status --porcelain | wc -c)" = "0" || git commit -m "Add suffix -0.0 to version"
+	test "$$(git status --porcelain | wc -c)" = "0" || git commit -m "add suffix -0.0 to version"
 	crant -u 4 -C
 
 bump-cran: bump-cran-desc inst/NEWS.Rd tag
