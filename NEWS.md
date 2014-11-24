@@ -1,13 +1,4 @@
-v0.0-3.2 (2014-11-24)
-===
-
 * New function `isplice` to allow a shorter specification of the data directory
-
-v0.0-3.1 (2014-11-24)
-===
-
-* Have to use `system.file` when calling `splice` so that it also works when
-  installing using `R CMD INSTALL`
 
 v0.0-3 (2014-11-18)
 ===
