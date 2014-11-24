@@ -21,7 +21,7 @@ inst/NEWS.Rd: git NEWS.md
 	test "$$(git status --porcelain | wc -c)" = "0" || git commit -m "update NEWS.Rd"
 
 tag:
-	git tag v$$(sed -n -r '/^Version: / {s/.* ([0-9.-]+)$$/\1/;p}' DESCRIPTION)
+	(echo Release v$$(sed -n -r '/^Version: / {s/.* ([0-9.-]+)$$/\1/;p}' DESCRIPTION); echo; sed -n '/^===/,/^===/{:a;N;/\n===/!ba;p;q}' NEWS.md | head -n -3 | tail -n +3) | git tag -a -F /dev/stdin v$$(sed -n -r '/^Version: / {s/.* ([0-9.-]+)$$/\1/;p}' DESCRIPTION)
 
 bump-cran-desc: master rd
 	crant -u 2 -C
