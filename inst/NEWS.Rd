@@ -1,7 +1,7 @@
 \name{NEWS}
 \title{News for Package 'dfunbind'}
 \encoding{UTF-8}
-\section{Changes in dfunbind version 0.0-4.1 (2014-11-24)}{
+\section{Changes in dfunbind version 0.0-5 (2014-11-24)}{
   \itemize{
     \item \code{isplice} also works for other packages
     \item Better error checking in \code{splice} and \code{isplice}
