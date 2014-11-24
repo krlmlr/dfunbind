@@ -1,3 +1,6 @@
+v0.0-4 (2014-11-24)
+===
+
 * New function `isplice` to allow a shorter specification of the data directory
 
 v0.0-3 (2014-11-18)
