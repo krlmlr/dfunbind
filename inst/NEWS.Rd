@@ -1,6 +1,12 @@
 \name{NEWS}
 \title{News for Package 'dfunbind'}
 \encoding{UTF-8}
+\section{Changes in dfunbind version 0.0-4.1 (2014-11-24)}{
+  \itemize{
+    \item \code{isplice} also works for other packages
+    \item Better error checking in \code{splice} and \code{isplice}
+  }
+}
 \section{Changes in dfunbind version 0.0-4 (2014-11-24)}{
   \itemize{
     \item New function \code{isplice} to allow a shorter specification of the data directory
