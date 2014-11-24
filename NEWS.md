@@ -1,3 +1,6 @@
+* Have to use `system.file` when calling `splice` so that it also works when
+  installing using `R CMD INSTALL`
+
 v0.0-3 (2014-11-18)
 ===
 
