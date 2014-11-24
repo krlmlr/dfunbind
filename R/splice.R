@@ -109,12 +109,30 @@ cache_columns <- function(x, out_names) {
 
 #' @export
 str.dfsplice <- function(object, ...) {
+  object_info <- mapply(
+    function(name, info) {
+      ret <- c(
+        name,
+        sprintf(
+          "- %s",
+          c(
+            info$class,
+            paste(sprintf("%s=%s", names(info$summary), info$summary), collapse = ", "))
+        )
+      )
+      if (!is.null(comment(info)))
+        ret <- c(sprintf("# ", comment(info)), ret)
+      ret
+    },
+    names(object),
+    unclass(object)
+  )
   cat(
     sprintf(
       "A dfsplice object with %d rows and %d columns:%s",
       nrow(object),
       ncol(object),
-      paste(c("", names(object)), collapse = "\n  ")
+      paste(c("", object_info), collapse = "\n  ")
     )
   )
   invisible(NULL)
