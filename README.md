@@ -19,9 +19,9 @@ Then,  in the `R/` subdirectory of your package, create a source file
 with the following contents:
 
 ```
-#' @import dfunbind
+#' @importFrom dfunbind isplice
 #' @export
-dataset <- splice("inst/extdata/dataset")
+dataset <- isplice("dataset")
 ```
 
 Use `roxygen2` or `devtools` to create documentation and the `NAMESPACE` file.
