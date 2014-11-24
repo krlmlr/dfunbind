@@ -67,7 +67,7 @@ get_info <- function(x) {
         attributes = attributes(x[[col]]),
         class = class(x[[col]]),
         levels = levels(x[[col]]),
-        summary = summary(x[[col]]),
+        summary = summary(x[[col]], maxsum = SUMMARY_MAXSUM),
         .FileName = sprintf(fmt, col, name)
       )
       ret[!vapply(ret, is.null, logical(1L))]
@@ -94,3 +94,5 @@ get_info <- function(x) {
 
   info
 }
+
+SUMMARY_MAXSUM <- 7
