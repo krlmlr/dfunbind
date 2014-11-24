@@ -66,7 +66,6 @@ get_info <- function(x) {
       ret <- list(
         attributes = attributes(x[[col]]),
         class = class(x[[col]]),
-        levels = levels(x[[col]]),
         summary = summary(x[[col]], maxsum = SUMMARY_MAXSUM),
         .FileName = sprintf(fmt, col, name)
       )
