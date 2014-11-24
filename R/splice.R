@@ -13,7 +13,7 @@
 #'   \code{[[} or \code{$}
 #' @export
 splice <- function(path) {
-  path <- normalizePath(path)
+  path <- normalizePath(path, mustWork = TRUE)
   pattern <- "^([0-9]+)-(.*)[.]rds$"
   files <- dir(path = path, pattern = pattern)
 
@@ -50,6 +50,8 @@ splice <- function(path) {
 #' @export
 isplice <- function(dataset, package = packageName()) {
   path <- system.file(file.path("extdata", dataset), package = package)
+  if (path == "")
+    stop("No subdirectory ", dataset, " found in package ", package, ".")
   splice(path)
 }
 
