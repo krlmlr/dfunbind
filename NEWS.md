@@ -1,6 +1,3 @@
-v0.0-4.1 (2014-11-24)
-===
-
 * `isplice` also works for other packages
 * Better error checking in `splice` and `isplice`
 
