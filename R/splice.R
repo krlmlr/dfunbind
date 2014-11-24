@@ -120,8 +120,8 @@ str.dfsplice <- function(object, ...) {
             paste(sprintf("%s=%s", names(info$summary), info$summary), collapse = ", "))
         )
       )
-      if (!is.null(comment(info)))
-        ret <- c(sprintf("# ", comment(info)), ret)
+      if (!is.null(info$attributes$comment)))
+        ret <- c(sprintf("# ", info$attributes$comment), ret)
       ret
     },
     names(object),
