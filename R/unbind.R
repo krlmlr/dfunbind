@@ -80,12 +80,17 @@ get_info <- function(x) {
   else
     sprintf(fmt, 0L, "rownames")
 
-  attrib_names <- setdiff(names(attributes(x)), "row.names")
+  attrib_names <- setdiff(names(attributes(x)), c("row.names", "class"))
 
-  structure(
+  info <- structure(
     info,
-    attributes = attributes(x)[attrib_names],
     .NRows = nrow(x),
     .RowNamesFileName = row_names_file_name
   )
+
+  for (name in attrib_names) {
+    attr(info, name) <- attr(x, name)
+  }
+
+  info
 }
