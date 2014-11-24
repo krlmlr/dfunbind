@@ -48,7 +48,7 @@ splice <- function(path) {
 #' @param package The name of the package where the data is stored.  The default
 #'   loads data from the current package.
 #' @export
-isplice <- function(dataset, package = packageName()) {
+isplice <- function(dataset, package = packageName(env = parent.frame())) {
   path <- system.file(file.path("extdata", dataset), package = package)
   if (path == "")
     stop("No subdirectory ", dataset, " found in package ", package, ".")

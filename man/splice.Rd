@@ -7,7 +7,7 @@
 \usage{
 splice(path)
 
-isplice(dataset, package = packageName())
+isplice(dataset, package = packageName(env = parent.frame()))
 }
 \arguments{
 \item{path}{Source directory as passed to \code{\link{unbind}}}

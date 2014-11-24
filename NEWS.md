@@ -1,3 +1,4 @@
+* `isplice` also works for other packages
 * Better error checking in `splice` and `isplice`
 
 v0.0-4 (2014-11-24)
