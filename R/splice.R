@@ -1,7 +1,12 @@
 #' Loads column-wise data
 #'
-#' This function loads the data for each column of a data frame from a separate
+#' These functions load the data for each column of a data frame from a separate
 #' RDS file, as created by \code{\link{unbind}}.
+#'
+#' Normally, you want to use \code{isplice} with the name of the directory
+#' (under \code{extdata}) where the data is located. The \code{splice} function
+#' allows specifying a path in the file system; it is called internally from
+#' \code{isplice}.
 #'
 #' @param path Source directory as passed to \code{\link{unbind}}
 #' @return An object of class \code{dfsplice}; extract columns by using \code{[},
@@ -35,6 +40,17 @@ splice <- function(path) {
     .Files = files,
     .Values = new.env(parent = emptyenv()),
     class = c("dfsplice"))
+}
+
+#' @rdname splice
+#' @param dataset The name of the directory under \code{inst/extdata} where the
+#'   data is stored.
+#' @param package The name of the package where the data is stored.  The default
+#'   loads data from the current package.
+#' @export
+isplice <- function(dataset, package = packageName()) {
+  path <- system.file(file.path("extdata", dataset), package = package)
+  splice(path)
 }
 
 get_path <- function(x) attr(x, ".Path")

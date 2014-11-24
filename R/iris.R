@@ -8,4 +8,4 @@
 #' @export
 #' @examples
 #' head(iris_unbound[1:3])
-iris_unbound <- splice(system.file("extdata/iris", package = packageName()))
+iris_unbound <- isplice("iris")
