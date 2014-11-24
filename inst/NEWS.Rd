@@ -1,15 +1,9 @@
 \name{NEWS}
 \title{News for Package 'dfunbind'}
 \encoding{UTF-8}
-\section{Changes in dfunbind version 0.0-3.2 (2014-11-24)}{
+\section{Changes in dfunbind version 0.0-4 (2014-11-24)}{
   \itemize{
     \item New function \code{isplice} to allow a shorter specification of the data directory
-  }
-}
-\section{Changes in dfunbind version 0.0-3.1 (2014-11-24)}{
-  \itemize{
-    \item Have to use \code{system.file} when calling \code{splice} so that it also works when
-      installing using \code{R CMD INSTALL}
   }
 }
 \section{Changes in dfunbind version 0.0-3 (2014-11-18)}{
