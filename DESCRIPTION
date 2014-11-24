@@ -1,7 +1,7 @@
 Encoding: UTF-8
 Package: dfunbind
 Title: Column-wise loading of large data frames for package authors
-Version: 0.0-3.1
+Version: 0.0-3.2
 Authors@R: "Kirill Müller <krlml+r@mailbox.org> [aut, cre]"
 Description: When packaging data frames to a package, the entire data frame
     is loaded when first accessed.  This is impractical if the data frame
