@@ -9,13 +9,11 @@ test_that('Unbind creates files and directories', {
   expect_true(file.info(my_subdir)$isdir)
   files <- dir(my_subdir)
   expect_equal(length(files), ncol(iris) + 1)
-  expect_equal(files, sprintf("%d-%s.rds", 0:5, c("rownames", colnames(iris))))
+  expect_equal(files, c(sprintf("%d-%s.rds", 1:5, c(colnames(iris))), DICT_FILENAME))
 })
 
 test_that('splice and row names', {
-  expect_equal(readRDS(file.path(my_subdir, "0-rownames.rds")), list(nrow(iris)))
-  iris_splice <- splice(my_subdir)
-  expect_equal(row.names(iris_splice), row.names(iris))
+  expect_false(exists(file.path(my_subdir, "0-rownames.rds")))
 })
 
 test_that('splice and column names', {

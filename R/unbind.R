@@ -25,27 +25,67 @@ unbind <- function(x, .destdir, .compress = TRUE, .parallel = FALSE) {
   if (!file.exists(.destdir))
     dir.create(.destdir, recursive = TRUE)
 
-  fmt <- sprintf("%%.0%dd-%%s.rds", ceiling(log10(ncol(x) + 1)))
+  info <- get_info(x)
 
-  xs <- seq.int(0L, ncol(x))
+  xs <- seq_along(info)
+  if (!is.null(attr(info, ".RowNamesFileName")))
+    xs <- c(0L, xs)
 
   cores <- if (.parallel) parallel::detectCores() else 1L
+
   parallel::mclapply(
     xs,
     function(i) {
-      if (i == 0) {
-        name <- "rownames"
+      if (i == 0L) {
+        fname <- attr(info, ".RowNamesFileName")
         obj <- attr(x, "row.names")
-        if (all(obj == seq_len(nrow(x))))
-          obj <- list(nrow(x))
       } else {
-        name <- names(x)[[i]]
+        fname <- info[[i]]$.FileName
         obj <- x[[i]]
       }
-      saveRDS(obj, file = file.path(.destdir, sprintf(fmt, i, name)), compress = .compress)
+      saveRDS(obj, file = file.path(.destdir, fname), compress = .compress)
     },
     mc.cores = cores
   )
 
-  invisible(NULL)
+  info_dfsplice <- structure(
+    info,
+    class = "dfsplice"
+  )
+
+  saveRDS(info_dfsplice, file = file.path(.destdir, DICT_FILENAME), compress = .compress)
+}
+
+get_info <- function(x) {
+  fmt <- sprintf("%%.0%dd-%%s.rds", ceiling(log10(ncol(x) + 1)))
+
+  info <- lapply(
+    setNames(seq_along(x), names(x)),
+    function(col) {
+      name <- names(x)[[col]]
+      ret <- list(
+        attributes = attributes(x[[col]]),
+        class = class(x[[col]]),
+        levels = levels(x[[col]]),
+        summary = summary(x[[col]]),
+        .FileName = sprintf(fmt, col, name)
+      )
+      ret[!vapply(ret, is.null, logical(1L))]
+    }
+  )
+
+  row_names <- attr(x, "row.names")
+  row_names_file_name <- if (all(row_names == seq_len(nrow(x))))
+    NULL
+  else
+    sprintf(fmt, 0L, "rownames")
+
+  attrib_names <- setdiff(names(attributes(x)), "row.names")
+
+  structure(
+    info,
+    attributes = attributes(x)[attrib_names],
+    .NRows = nrow(x),
+    .RowNamesFileName = row_names_file_name
+  )
 }
