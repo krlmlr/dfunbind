@@ -1,47 +1,51 @@
-context('Unbind')
+test_unbind <- function(my_data) {
+  context(sprintf('Unbind generic %s', deparse(substitute(my_data))))
 
-my_subdir <- "subdir/for/data"
-on.exit(unlink(my_subdir, recursive = TRUE))
-unbind(iris, my_subdir)
+  my_subdir <- "datadir"
+  on.exit(unlink(my_subdir, recursive = TRUE))
+  unbind(my_data, my_subdir)
 
-test_that('Unbind creates files and directories', {
-  expect_true(file.exists(my_subdir))
-  expect_true(file.info(my_subdir)$isdir)
-  files <- dir(my_subdir)
-  expect_equal(length(files), ncol(iris) + 1)
-})
+  test_that('Unbind creates files and directories', {
+    expect_true(file.exists(my_subdir))
+    expect_true(file.info(my_subdir)$isdir)
+    files <- dir(my_subdir)
+    expect_equal(length(files), ncol(my_data) + 1)
+  })
 
-test_that('splice and column names', {
-  iris_splice <- splice(my_subdir)
-  expect_equal(names(iris_splice), names(iris))
-  expect_equal(colnames(iris_splice), colnames(iris))
-  expect_equal(dimnames(iris_splice), dimnames(iris))
-})
+  test_that('splice and column names', {
+    my_data_splice <- splice(my_subdir)
+    expect_equal(names(my_data_splice), names(my_data))
+    expect_equal(colnames(my_data_splice), colnames(my_data))
+    expect_equal(dimnames(my_data_splice), dimnames(my_data))
+  })
 
-test_that('splice and dim', {
-  iris_splice <- splice(my_subdir)
-  expect_equal(nrow(iris_splice), nrow(iris))
-  expect_equal(ncol(iris_splice), ncol(iris))
-  expect_equal(dim(iris_splice), dim(iris))
-})
+  test_that('splice and dim', {
+    my_data_splice <- splice(my_subdir)
+    expect_equal(nrow(my_data_splice), nrow(my_data))
+    expect_equal(ncol(my_data_splice), ncol(my_data))
+    expect_equal(dim(my_data_splice), dim(my_data))
+  })
 
-test_that('splice and [', {
-  iris_splice <- splice(my_subdir)
-  expect_equal(iris_splice[3], iris[3])
-  expect_equal(iris_splice[c(2,1,5,3)], iris[c(2,1,5,3)])
-  expect_equal(iris_splice[names(iris)[c(2,1,5,3)]], iris[c(2,1,5,3)])
-  expect_equal(iris_splice[names(iris)[c(4,5)]], iris[c(4,5)])
-})
+  test_that('splice and [', {
+    my_data_splice <- splice(my_subdir)
+    expect_equal(my_data_splice[3], my_data[3])
+    expect_equal(my_data_splice[c(2,1,5,3)], my_data[c(2,1,5,3)])
+    expect_equal(my_data_splice[names(my_data)[c(2,1,5,3)]], my_data[c(2,1,5,3)])
+    expect_equal(my_data_splice[names(my_data)[c(4,5)]], my_data[c(4,5)])
+  })
 
-test_that('splice and [[', {
-  iris_splice <- splice(my_subdir)
-  expect_equal(iris_splice[[3]], iris[[3]])
-  expect_equal(iris_splice[[names(iris)[4]]], iris[[4]])
-  expect_error(iris_splice[[c(2,1,5,3)]])
-  expect_error(iris_splice[[names(iris)[c(2,1,5,3)]]])
-})
+  test_that('splice and [[', {
+    my_data_splice <- splice(my_subdir)
+    expect_equal(my_data_splice[[3]], my_data[[3]])
+    expect_equal(my_data_splice[[names(my_data)[4]]], my_data[[4]])
+    expect_error(my_data_splice[[c(2,1,5,3)]])
+    expect_error(my_data_splice[[names(my_data)[c(2,1,5,3)]]])
+  })
 
-test_that('splice and as.data.frame', {
-  iris_splice <- splice(my_subdir)
-  expect_equal(as.data.frame(iris_splice), iris)
-})
+  test_that('splice and as.data.frame', {
+    my_data_splice <- splice(my_subdir)
+    expect_equal(as.data.frame(my_data_splice), my_data)
+  })
+}
+
+test_unbind(iris)
