@@ -1,6 +1,12 @@
 \name{NEWS}
 \title{News for Package 'dfunbind'}
 \encoding{UTF-8}
+\section{Changes in dfunbind version 0.0-6.1 (2014-11-25)}{
+  \itemize{
+    \item \code{[.dfsplice} correctly returns row names
+    \item new method \code{as.data.frame.dfsplice}
+  }
+}
 \section{Changes in dfunbind version 0.0-6 (2014-11-25)}{
   \itemize{
     \item \code{isplice} also looks in \code{inst/extdata} to support local installation (without
