@@ -14,30 +14,23 @@
 #' @export
 splice <- function(path) {
   path <- normalizePath(path, mustWork = TRUE)
-  pattern <- "^([0-9]+)-(.*)[.]rds$"
-  files <- dir(path = path, pattern = pattern)
 
-  indexes <- gsub(pattern, "\\1", files)
-  col_names <- gsub(pattern, "\\2", files)
+  info_fname <- file.path(path, DICT_FILENAME)
+  if (!file.exists(info_fname))
+    stop("Source directory ", path, " does not appear to contain a file ", DICT_FILENAME, " .")
 
-  if (length(indexes) == 0)
-    stop("Source directory ", path, " does not appear to contain .rds files.")
+  info <- readRDS(info_fname)
 
-  if (as.integer(indexes[[1L]]) != 0L)
-    stop("No row names found")
-
-  row_names <- readRDS(file.path(path, files[[1L]]))
-  if (is.list(row_names))
-    row_names <- seq_len(row_names[[1L]])
-  col_names <- col_names[-1L]
-  files <- files[-1L]
+  row_names_fname <- attr(info, ".RowNamesFileName")
+  row_names <- if (is.null(row_names_fname))
+    c(NA, -attr(info, ".NRows"))
+  else
+    readRDS(file.path(path, row_names_fname))
 
   structure(
-    rep(NA, length(col_names)),
-    .Names = col_names,
+    info,
     row.names = row_names,
     .Path = path,
-    .Files = files,
     .Values = new.env(parent = emptyenv()),
     class = c("dfsplice"))
 }
@@ -51,12 +44,14 @@ splice <- function(path) {
 isplice <- function(dataset, package = packageName(env = parent.frame())) {
   path <- system.file(file.path("extdata", dataset), package = package)
   if (path == "")
+    path <- system.file(file.path("inst", "extdata", dataset), package = package)
+  if (path == "")
     stop("No subdirectory ", dataset, " found in package ", package, ".")
   splice(path)
 }
 
 get_path <- function(x) attr(x, ".Path")
-get_files <- function(x) attr(x, ".Files")
+get_file <- function(x, i) unclass(x)[[i]]$.FileName
 get_values <- function(x) attr(x, ".Values")
 
 #' @export
@@ -102,7 +97,6 @@ cache_columns <- function(x, out_names) {
   envir <- get_values(x)
   names <- names(x)
   path <- get_path(x)
-  files <- get_files(x)
 
   loaded_names <- ls(envir)
   names_to_load <- setdiff(out_names, loaded_names)
@@ -111,18 +105,36 @@ cache_columns <- function(x, out_names) {
 
   for (i in indexes_to_load) {
     name <- names[[i]]
-    assign(name, readRDS(file.path(path, files[[i]])), envir)
+    assign(name, readRDS(file.path(path, get_file(x, i))), envir)
   }
 }
 
 #' @export
 str.dfsplice <- function(object, ...) {
+  object_info <- mapply(
+    function(name, info) {
+      ret <- c(
+        name,
+        sprintf(
+          "- %s",
+          c(
+            info$class,
+            paste(sprintf("%s=%s", names(info$summary), info$summary), collapse = ", "))
+        )
+      )
+      if (!is.null(info$attributes$comment))
+        ret <- c(sprintf("# %s", info$attributes$comment), ret)
+      ret
+    },
+    names(object),
+    unclass(object)
+  )
   cat(
     sprintf(
       "A dfsplice object with %d rows and %d columns:%s",
       nrow(object),
       ncol(object),
-      paste(c("", names(object)), collapse = "\n  ")
+      paste(c("", object_info), collapse = "\n  ")
     )
   )
   invisible(NULL)
@@ -130,3 +142,5 @@ str.dfsplice <- function(object, ...) {
 
 #' @export
 print.dfsplice <- function(x, ...) cat(str.dfsplice(x, ...), "\n")
+
+DICT_FILENAME <- "dfunbind.rds"

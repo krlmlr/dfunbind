@@ -1,3 +1,9 @@
+* `isplice` also looks in `inst/extdata` to support local installation (without
+  `R CMD build`) with the `devtools` package
+* change of internal data format allows storing much richer metadata such as
+  data type, summary and attributes (including comments) for each column
+  and the entire data frame
+
 v0.0-5 (2014-11-24)
 ===
 
