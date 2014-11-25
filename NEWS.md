@@ -1,3 +1,6 @@
+v0.0-6.1 (2014-11-25)
+===
+
 * `[.dfsplice` correctly returns row names
 * new method `as.data.frame.dfsplice`
 
