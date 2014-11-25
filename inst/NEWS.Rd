@@ -1,6 +1,15 @@
 \name{NEWS}
 \title{News for Package 'dfunbind'}
 \encoding{UTF-8}
+\section{Changes in dfunbind version 0.0-6 (2014-11-25)}{
+  \itemize{
+    \item \code{isplice} also looks in \code{inst/extdata} to support local installation (without
+      \code{R CMD build}) with the \code{devtools} package
+    \item change of internal data format allows storing much richer metadata such as
+      data type, summary and attributes (including comments) for each column
+      and the entire data frame
+  }
+}
 \section{Changes in dfunbind version 0.0-5 (2014-11-24)}{
   \itemize{
     \item \code{isplice} also works for other packages
