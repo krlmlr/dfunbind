@@ -44,6 +44,8 @@ splice <- function(path) {
 isplice <- function(dataset, package = packageName(env = parent.frame())) {
   path <- system.file(file.path("extdata", dataset), package = package)
   if (path == "")
+    path <- system.file(file.path("inst", "extdata", dataset), package = package)
+  if (path == "")
     stop("No subdirectory ", dataset, " found in package ", package, ".")
   splice(path)
 }
