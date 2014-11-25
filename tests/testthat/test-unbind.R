@@ -53,3 +53,8 @@ test_that('splice and $', {
   expect_equal(iris_splice$Petal.L, iris$Petal.L)
   expect_error(iris_splice$Nonexisting)
 })
+
+test_that('splice and as.data.frame', {
+  iris_splice <- splice(my_subdir)
+  expect_equal(as.data.frame(iris_splice), iris)
+})

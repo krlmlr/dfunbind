@@ -1,3 +1,5 @@
+* new method `as.data.frame.dfsplice`
+
 v0.0-6 (2014-11-25)
 ===
 

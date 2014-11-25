@@ -93,6 +93,10 @@ dim.dfsplice <- function(x) dim.data.frame(x)
   get(out_names, get_values(x))
 }
 
+#' @export
+as.data.frame.dfsplice <- function(x)
+  x[seq_along(x)]
+
 cache_columns <- function(x, out_names) {
   envir <- get_values(x)
   names <- names(x)
