@@ -6,6 +6,7 @@ unbind(mtcars, my_subdir)
 
 test_that('File name format for unbind', {
   files <- dir(my_subdir)
+  expect_equal(length(files), ncol(mtcars) + 2)
   expect_equal(files, c(sprintf("%.2d-%s.rds", seq_len(ncol(mtcars) + 1) - 1, c("rownames", colnames(mtcars))), DICT_FILENAME))
 })
 

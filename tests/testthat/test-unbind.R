@@ -8,8 +8,6 @@ test_unbind <- function(my_data) {
   test_that('Unbind creates files and directories', {
     expect_true(file.exists(my_subdir))
     expect_true(file.info(my_subdir)$isdir)
-    files <- dir(my_subdir)
-    expect_equal(length(files), ncol(my_data) + 1)
   })
 
   test_that('splice and column names', {
