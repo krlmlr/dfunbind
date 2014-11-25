@@ -123,7 +123,7 @@ str.dfsplice <- function(object, ...) {
         )
       )
       if (!is.null(info$attributes$comment))
-        ret <- c(sprintf("# ", info$attributes$comment), ret)
+        ret <- c(sprintf("# %s", info$attributes$comment), ret)
       ret
     },
     names(object),
