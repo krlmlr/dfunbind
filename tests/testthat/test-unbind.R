@@ -9,6 +9,10 @@ test_that('Unbind creates files and directories', {
   expect_true(file.info(my_subdir)$isdir)
   files <- dir(my_subdir)
   expect_equal(length(files), ncol(iris) + 1)
+})
+
+test_that('File name format for unbind', {
+  files <- dir(my_subdir)
   expect_equal(files, c(sprintf("%d-%s.rds", 1:5, c(colnames(iris))), DICT_FILENAME))
 })
 
