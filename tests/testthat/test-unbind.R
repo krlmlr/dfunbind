@@ -47,3 +47,4 @@ test_unbind <- function(my_data) {
 }
 
 test_unbind(iris)
+test_unbind(mtcars)
