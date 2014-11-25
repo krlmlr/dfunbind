@@ -1,3 +1,6 @@
+v0.0-6 (2014-11-25)
+===
+
 * `isplice` also looks in `inst/extdata` to support local installation (without
   `R CMD build`) with the `devtools` package
 * change of internal data format allows storing much richer metadata such as
