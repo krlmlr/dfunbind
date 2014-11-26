@@ -70,7 +70,7 @@ dim.dfsplice <- function(x) dim.data.frame(x)
 
   cache_columns(x, out_names)
 
-  as.data.frame(mget(out_names, get_values(x)), row.names = attr(x, "row.names"))
+  as.data.frame(mget(out_names, get_values(x)), row.names = attr(x, "row.names"), stringsAsFactors = FALSE)
 }
 
 #' @export
