@@ -1,3 +1,6 @@
+v0.0-6.2 (2014-11-26)
+===
+
 * `character` columns are not converted to `factor` anymore
 
 v0.0-6.1 (2014-11-25)
