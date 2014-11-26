@@ -48,3 +48,7 @@ test_unbind <- function(my_data) {
 
 test_unbind(iris)
 test_unbind(mtcars)
+string_data <- data.frame(
+  l = letters, L = LETTERS, lr = rev(letters), LR = rev(LETTERS), s = seq_along(letters),
+  stringsAsFactors = FALSE)
+test_unbind(string_data)
