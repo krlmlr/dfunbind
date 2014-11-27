@@ -1,6 +1,11 @@
 \name{NEWS}
 \title{News for Package 'dfunbind'}
 \encoding{UTF-8}
+\section{Changes in dfunbind version 0.0-7.2 (2014-11-27)}{
+  \itemize{
+    \item support multi-line comments, remove trailing space
+  }
+}
 \section{Changes in dfunbind version 0.0-7.1 (2014-11-27)}{
   \itemize{
     \item fix failing tests
