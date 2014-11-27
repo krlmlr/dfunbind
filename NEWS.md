@@ -1,18 +1,7 @@
-v0.0-6.3 (2014-11-27)
-===
-
-* add comments to Iris data
-
-v0.0-6.2 (2014-11-26)
-===
-
 * `character` columns are not converted to `factor` anymore
-
-v0.0-6.1 (2014-11-25)
-===
-
 * `[.dfsplice` correctly returns row names
 * new method `as.data.frame.dfsplice`
+* add comments to Iris data
 
 v0.0-6 (2014-11-25)
 ===
