@@ -1,3 +1,6 @@
+v0.0-7 (2014-11-27)
+===
+
 * `character` columns are not converted to `factor` anymore
 * `[.dfsplice` correctly returns row names
 * new method `as.data.frame.dfsplice`
