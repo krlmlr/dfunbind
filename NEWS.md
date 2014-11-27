@@ -1,3 +1,6 @@
+v0.0-7.2 (2014-11-27)
+===
+
 * support multi-line comments, remove trailing space
 
 v0.0-7.1 (2014-11-27)
