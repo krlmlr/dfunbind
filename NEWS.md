@@ -1,3 +1,5 @@
+* fix failing tests
+
 v0.0-7 (2014-11-27)
 ===
 
