@@ -1,6 +1,11 @@
 \name{NEWS}
 \title{News for Package 'dfunbind'}
 \encoding{UTF-8}
+\section{Changes in dfunbind version 0.0-6.3 (2014-11-27)}{
+  \itemize{
+    \item add comments to Iris data
+  }
+}
 \section{Changes in dfunbind version 0.0-6.2 (2014-11-26)}{
   \itemize{
     \item \code{character} columns are not converted to \code{factor} anymore
