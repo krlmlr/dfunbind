@@ -49,5 +49,5 @@ bootstrap_snap:
 test:
 	Rscript -e "update.packages(repos = 'http://cran.rstudio.com')"
 	Rscript -e "options(repos = 'http://cran.rstudio.com'); devtools::install_deps(dependencies = TRUE)"
-	Rscript -e "devtools::check(document = FALSE, check_dir = '..', cleanup = FALSE)"
+	Rscript -e "devtools::check(document = FALSE, check_dir = '.', cleanup = FALSE)"
 	! egrep -A 5 "ERROR|WARNING|NOTE" ../*.Rcheck/00check.log
