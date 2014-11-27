@@ -1,20 +1,12 @@
 \name{NEWS}
 \title{News for Package 'dfunbind'}
 \encoding{UTF-8}
-\section{Changes in dfunbind version 0.0-6.3 (2014-11-27)}{
-  \itemize{
-    \item add comments to Iris data
-  }
-}
-\section{Changes in dfunbind version 0.0-6.2 (2014-11-26)}{
+\section{Changes in dfunbind version 0.0-7 (2014-11-27)}{
   \itemize{
     \item \code{character} columns are not converted to \code{factor} anymore
-  }
-}
-\section{Changes in dfunbind version 0.0-6.1 (2014-11-25)}{
-  \itemize{
     \item \code{[.dfsplice} correctly returns row names
     \item new method \code{as.data.frame.dfsplice}
+    \item add comments to Iris data
   }
 }
 \section{Changes in dfunbind version 0.0-6 (2014-11-25)}{
