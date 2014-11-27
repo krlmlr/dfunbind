@@ -129,19 +129,24 @@ str.dfsplice <- function(object, ...) {
             paste(sprintf("%s=%s", names(info$summary), info$summary), collapse = ", "))
         )
       )
-      if (!is.null(info$attributes$comment))
-        ret <- c(sprintf("# %s", info$attributes$comment), ret)
+      if (!is.null(info$attributes$comment)) {
+        comment_lines <- strsplit(gsub("\n+$", "", info$attributes$comment), "\n")[[1L]]
+        comment_lines <- gsub(" +$", "", comment_lines)
+
+        ret <- c(sprintf("# %s", comment_lines), ret)
+      }
       ret
     },
     names(object),
     unclass(object)
   )
+
   cat(
     sprintf(
       "A dfsplice object with %d rows and %d columns:%s",
       nrow(object),
       ncol(object),
-      paste(c("", object_info), collapse = "\n  ")
+      paste(c("", unlist(object_info)), collapse = "\n  ")
     )
   )
   invisible(NULL)
