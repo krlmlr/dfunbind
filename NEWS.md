@@ -1,3 +1,5 @@
+* support multi-line comments, remove trailing space
+
 v0.0-7.1 (2014-11-27)
 ===
 
