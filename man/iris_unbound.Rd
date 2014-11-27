@@ -22,6 +22,7 @@
   - numeric
   - Min.=0.1, 1st Qu.=0.3, Median=1.3, Mean=1.199, 3rd Qu.=1.8, Max.=2.5
   # Species of Iris
+  # Try explaining this with the help of the other features!
   Species
   - factor
   - setosa=50, versicolor=50, virginica=50
