@@ -94,8 +94,11 @@ dim.dfsplice <- function(x) dim.data.frame(x)
 }
 
 #' @export
-as.data.frame.dfsplice <- function(x)
+as.data.frame.dfsplice <- function(x, row.names = NULL, optional = FALSE, ...) {
+  if (!is.null(row.names))
+    stop("row.names must be NULL for as.data.frame.dfsplice")
   x[seq_along(x)]
+}
 
 cache_columns <- function(x, out_names) {
   envir <- get_values(x)
