@@ -5,18 +5,23 @@
 \alias{iris_unbound}
 \title{The Iris data, saved as one file per column}
 \format{\preformatted{A dfsplice object with 150 rows and 5 columns:
+  # Length of the sepals
   Sepal.Length
   - numeric
   - Min.=4.3, 1st Qu.=5.1, Median=5.8, Mean=5.843, 3rd Qu.=6.4, Max.=7.9
+  # Width of the sepals
   Sepal.Width
   - numeric
   - Min.=2, 1st Qu.=2.8, Median=3, Mean=3.057, 3rd Qu.=3.3, Max.=4.4
+  # Length of the sepals
   Petal.Length
   - numeric
   - Min.=1, 1st Qu.=1.6, Median=4.35, Mean=3.758, 3rd Qu.=5.1, Max.=6.9
+  # Width of the sepals
   Petal.Width
   - numeric
   - Min.=0.1, 1st Qu.=0.3, Median=1.3, Mean=1.199, 3rd Qu.=1.8, Max.=2.5
+  # Species of Iris
   Species
   - factor
   - setosa=50, versicolor=50, virginica=50

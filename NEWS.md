@@ -1,3 +1,5 @@
+* add comments to Iris data
+
 v0.0-6.2 (2014-11-26)
 ===
 
