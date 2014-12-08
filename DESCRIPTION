@@ -9,7 +9,7 @@ Description: When packaging data frames to a package, the entire data frame
     a workaround by providing functions to store and load data frames in
     one RDS file per column.
 Depends:
-    R (>= 3.1.2)
+    R (>= 3.1.1)
 License: GPL-3
 LazyData: true
 Suggests:
